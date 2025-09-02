@@ -67,6 +67,7 @@ const res = {
     "image:Truct": "assets/img/truct.svg",
     "image:Truct-P": "assets/img/truct-p.png",
     "image:uJSX-P": "assets/img/ujsx-p.png",
+    "image:Nethop-P": "assets/img/nethop-p.png",
 }
 
 // Prepare the Loader

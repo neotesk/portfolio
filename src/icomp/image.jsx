@@ -3,7 +3,7 @@ import ujsx from "ujsx";
 import { MediaXSmall } from "../gmedia";
 
 const image = new ujsx.StyleRule( {
-    width: ujsx.Percent( 50 ),
+    width: ujsx.Percent( 33.3333 ),
     transform: "scale( 1 ) rotate( 0deg )",
     boxShadow: "0px 0px 0px 0px rgba(0,0,0,0.7)",
     transition: "transform .2s var( --bez ), box-shadow .2s var( --bez )"

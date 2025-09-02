@@ -69,6 +69,7 @@ export default function Page () {
             <SectionPadless text="Projelerim" number="03" styleRule={ wrap3 }>
                 <Image href="https://github.com/neotesk/truct" src={ Resource( "image:Truct-P" ) } />
                 <Image href="https://github.com/neotesk/ujsx" src={ Resource( "image:uJSX-P" ) } />
+                <Image href="https://github.com/neotesk/nethop" src={ Resource( "image:Nethop-P" ) } />
             </SectionPadless>
             <Footer styleRule={ wrap4 } />
         </div>
