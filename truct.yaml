@@ -1,0 +1,66 @@
+project:
+    name: neotesk@interweb
+    version: 1.0.0
+    description: Portfolio Website for Neotesk
+    source: https://github.com/neotesk/portfolio
+    author: Neotesk
+    license: WTFPL
+
+var:
+    ujsx_build_args: --define:global=window
+                     --bundle
+                     --target=es2017
+                     --alias:ujsx=./lib/ujsx/index.js
+                     --jsx-factory=ujsx.createElement
+                     --jsx-fragment=ujsx.Fragment
+                     --outfile=build/page.ujsx.js
+                     src/main.jsx
+
+.prepare-build:
+    description: Prepares build for the template
+    actions:
+        -
+            action: mkdir
+            destination: build
+        -
+            action: copy
+            source: assets
+            destination: build/assets
+            overwrite: true
+            preservePermissions: true
+        -
+            action: touch
+            destination: build/index.html
+            content: |
+                <html>
+                    <head>
+                        <title>{{project.name}}</title>
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                        <script defer src="page.ujsx.js"></script>
+                    </head>
+                    <body>
+                        <!--
+                            {{project.name}} {{project.version}}
+                            {{project.description}}
+                            Built at {{rt.time}}
+                        -->
+                    </body>
+                </html>
+
+.build:
+    description: Builds uJSX
+    actions:
+        - prepare-build
+        -
+            action: shell
+            cmdlines:
+                - esbuild {{var.ujsx_build_args}}
+
+.run:
+    description: Builds and watches uJSX
+    actions:
+        - prepare-build
+        -
+            action: shell
+            cmdlines:
+                - esbuild --watch {{var.ujsx_build_args}}
